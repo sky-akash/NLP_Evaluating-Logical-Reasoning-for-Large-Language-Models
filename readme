@@ -1,0 +1,41 @@
+Project Overview - Logical Reasoning Analysis in LLMs
+
+
+This project evaluates logical reasoning capabilities of large language models (LLMs) using aset of logical puzzles. The study focuses on how models handle negative constraints, negation, ordering, and quantifiers, and evaluates their behavior under different prompting strategies, including zero-shot (ZS), few-shot (FS) and Chain-of-Thought (CoT).
+
+The work was conducted as part of the Text Mining and Natural Language Processing course, serving as the final report for exploring real-world LLM behavior beyond simple text generation.
+
+Dataset
+Source: Subset of LogiQA2.0 dataset from HuggingFace
+Selection: 6 puzzles per category and difficulty level, across 15 logical reasoning types.
+Categories include: Exclusion, Negation, Ordering, Quantifiers, and more.
+
+Goals
+Evaluate LLM reasoning performance on logical puzzles.
+Measure sensitivity to specific logic keywords (e.g., “except,” “not,” “all”).
+Compare accuracy under zero-shot vs Chain-of-Thought prompts.
+Identify blind spots and weaknesses in LLM logical reasoning.
+Provide practical insights for prompt engineering and model-specific strategies.
+
+Methodology
+Data Processing:
+Split puzzles into Category-Level (group logic) and Word-Level (keyword sensitivity).
+Aggregate accuracy scores across different prompt types.
+
+Metrics:
+Accuracy Gaps: Difference in accuracy with vs without logic terms.
+Sensitivity Scores: Percentage of answers changed when logic keywords are removed.
+CoT Gain: Accuracy improvement (or loss) when using Chain-of-Thought prompting.
+
+Models Evaluated:
+GPT-OSS 20B (large model)
+Gemma 3:1B (small model)
+
+
+Key Findings
+Exclusion Blind Spot: LLMs detect exclusion words but often misapply the logic, resulting in modest or inconsistent accuracy gains.
+Complexity Penalty: Small models struggle with CoT or few-shot prompts, which can reduce accuracy.
+Urgency Prompts: Phrases like “Important!” or “Hurry!” do not improve reasoning and can harm performance.
+CoT Divergence: Step-by-step reasoning helps some cases but can introduce hallucinations, particularly in small models.
+
+Model-Specific Recommendations: Simpler prompts are more effective for smaller models, while larger models are robust but not perfect.
